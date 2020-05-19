@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -12,6 +12,7 @@ export class ClickAreaComponent implements OnInit {
   clickTimer=this.time
   clickCounter:number=0
   AttemptHist=[]
+  @ViewChild('btn') btnref:ElementRef
   constructor() { }
 
   ngOnInit(): void {
@@ -54,6 +55,7 @@ export class ClickAreaComponent implements OnInit {
     
     console.log($event)
   }
+  
 
   onScreenClick(){
     
@@ -64,6 +66,7 @@ export class ClickAreaComponent implements OnInit {
           this.clickTimer-- 
         }
         else{
+        this.btnref.nativeElement.scrollIntoView({behaviour:'smooth'})
         this.AttemptHist.push(this.clickCounter)
          
         clearInterval(x)

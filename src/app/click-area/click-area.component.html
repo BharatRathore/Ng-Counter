@@ -31,14 +31,17 @@
                         *ngIf="clickCounter==0" 
                         class="text-center">Click anywhere on screen to start
                     </h5>
-                    <div class="timer bg-dark text-light d-flex flex-column align-items-center justify-content-center">
+                    <div class="timer shadow bg-dark text-light d-flex flex-column align-items-center justify-content-center">
                         <h4>Clicks</h4>
                         <h3 class="text-center ">{{clickCounter}}</h3>
                     </div>
                     <h4 class="m-0 mt-3 text-success">Best Score: {{getMax()}} in {{AttemptHist.length}} attempts
                     </h4>
-                    <h3 class="text-primary">Average: {{ getAvg()}} clicks/sec</h3>
-                    <button *ngIf="clickTimer==0" class="btn btn-primary" (click)="reset();$event.stopPropagation();">Start again</button>
+                    <h3 class="text-primary mt-3">Average: {{ getAvg()}} clicks/sec</h3>
+                    <button #btn
+                        *ngIf="clickTimer==0" 
+                        class="btn btn-primary my-3" 
+                        (click)="reset();$event.stopPropagation();">Start again</button>
                     
                 </div>
                 
