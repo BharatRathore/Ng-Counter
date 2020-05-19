@@ -26,6 +26,19 @@ export class ClickAreaComponent implements OnInit {
     }
     
   }
+  getAvg(){
+    if(this.AttemptHist.length==0){
+      return 0
+    }
+    else{
+     let total=0
+      this.AttemptHist.forEach(attempt=>{
+        total+=attempt
+      })
+      let avg = total/this.AttemptHist.length
+      return (avg/this.time).toFixed(2)
+    }
+  }
   
   reset(){
       
