@@ -1,0 +1,13 @@
+.main{
+    height: 100vh;
+    user-select: none;
+}
+.timer{
+    height: 50vh;
+    width: 50vh;
+    border-radius: 50%;
+    border: 12px solid gray;
+   
+}
+
+

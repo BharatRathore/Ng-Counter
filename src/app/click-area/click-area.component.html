@@ -1,0 +1,51 @@
+<div class="row m-0" (click)="onScreenClick()">
+    <div class="col-md-12">
+        <div class="main" >
+            <h1 class="text-center">Click Counter</h1>
+                <p class="text-center">
+                  Lets see how many times can you click in {{time}} seconds...
+            
+                </p>
+                <hr>
+            
+            
+                <!-- <button (click)="onStart()">Start</button> -->
+                
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <h3 
+                        [ngClass]="clickTimer>3?'text-primary':'text-danger'"
+                        *ngIf="clickCounter>0 && clickTimer!=0 ; else timeup" 
+                        class="text-center">{{clickTimer}} seconds remaining
+                    </h3>
+                    <ng-template #timeup>
+                        <h3 *ngIf="clickTimer==0"
+                            class="text-danger">
+                            Time up
+                            
+                        </h3>
+                    </ng-template>
+                    
+
+                    <h5 
+                        
+                        *ngIf="clickCounter==0" 
+                        class="text-center">Click anywhere on screen to start
+                    </h5>
+                    <div class="timer bg-dark text-light d-flex flex-column align-items-center justify-content-center">
+                        <h4>Clicks</h4>
+                        <h3 class="text-center ">{{clickCounter}}</h3>
+                    </div>
+                    <h4 class="m-0 mt-3 text-success">Best Score: {{getMax()}} in {{AttemptHist.length}} attempts
+                    </h4>
+                    <button *ngIf="clickTimer==0" class="btn btn-primary mt-5" (click)="reset();$event.stopPropagation();">Start again</button>
+                    
+                </div>
+                
+                
+                
+            
+            
+            
+            </div>
+    </div>
+</div>
